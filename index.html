@@ -41,15 +41,15 @@
 
 <p>易语言生成的程序，运行后，首先进行的操作是在Temp目录下创建新的文件夹，并将自身所需要的支持库释放到该目录下，文件后缀为.fnr、.fne等等，如下图</p>
 
-<p><div align="right"><img src="http://i.imgur.com/oASfph3.png" alt=""></div></p>
+<p><div align="center"><img src="http://i.imgur.com/oASfph3.png" alt=""></div></p>
 
 <p>接着会使用函数<code>LoadLibraryA</code>将支持库<code>krnln.fnr</code>加载到内存中，使用<code>GetProcAddress</code>获取其导出函数<code>GetNewSock</code>的地址，并通过<code>call eax</code>调用进行初始化的相关操作。</p>
 
-<p><div align="right"><img src="http://i.imgur.com/c4bFsit.png" alt=""></div></p>
+<p><div align="center"><img src="http://i.imgur.com/c4bFsit.png" alt=""></div></p>
 
 <p>初始化前后，第二个data段的对比</p>
 
-<p><div align="right"><img src="http://i.imgur.com/uYkxso6.png" alt=""></div></p>
+<p><div align="center"><img src="http://i.imgur.com/uYkxso6.png" alt=""></div></p>
 
 <p>可以看到，当程序执行到<code>0x46DD99</code>时，<code>0x46DDD0-0x46DE12</code>处的函数地址已经填充完毕，程序通过这些函数来执行操作。</p>
 
